@@ -1,0 +1,16 @@
+.left{
+    background-image: url("../../assets/images/pngtree-cartoon-fresh-classroom-background-illustration-seasoncartoonfresh-backgroundblackboardclassroom-backgroundpodiumillustration-image_59961.jpeg");
+    width:49vw;
+    float:left;
+    height:100vh;
+    margin:0;
+    padding:0; 
+}
+
+.right{
+    width:49vw;
+    float:left;
+    height:100vh;
+    margin:0;
+    margin-left: 20px;
+}
