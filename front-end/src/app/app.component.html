@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">EducApp</a>
+      <ul class="nav justify-content-end">
+        
+          <div *ngIf="this.loged ; else elseBlock">
+            <button type="button" class="btn btn-secondary" (click)="goToProfile()">
+              <span class="material-icons">face</span>
+            </button>
+
+            <button type="button" class="btn btn-danger" (click)="logout()"style="margin-left: 10px;">
+              LogOut
+            </button>
+          </div>            
+          <ng-template #elseBlock>
+            <button type="button" class="btn btn-primary" (click)="goToLogInPage()">
+              LogIn
+            </button>
+          </ng-template>
+      </ul>    
+    </div>
+  </nav>
+<router-outlet></router-outlet>

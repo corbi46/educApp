@@ -1,0 +1,86 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Password</th>
+        <th scope="col">Email</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Edad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of myappservice.users">
+          <td>{{user.name}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.gender}}</td>
+          <td>{{user.edad}}</td>
+      </tr>
+    </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">title</th>
+      <th scope="col">likes</th>
+      <th scope="col">url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let video of myappservice.videos">
+        <td>{{video.title}}</td>
+        <td>{{video.likes}}</td>
+        <td>{{video.url}}</td>
+        
+    </tr>
+  </tbody>
+</table>
+
+<div class="comment-create">
+  <div class="card">
+    <div class="card-header">
+     Upload video
+    </div>
+    <div class="card-body">
+      <form #video="ngForm" (ngSubmit)="createVideo(video)" class="form-floating" >
+        <div class="form-floating">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Title</span>
+            <input type="text" class="form-control" 
+            [(ngModel)]="myappservice.newVideo.title" name="title" #title />
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Url</span>
+            <input type="text" class="form-control" 
+            [(ngModel)]="myappservice.newVideo.url" name="url" #url />
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" 
+            [(ngModel)]="myappservice.newVideo.likes" name="likes" #likes hidden value="0"/>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary" style="margin-top: 10px;">
+          <span class="material-icons">
+            rate_review
+          </span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #contenido let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Titulo Modal</h4>
+    <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">Close</button>
+  </div>
+  <div class="modal-body">
+    cuerpo de el modal.
+    <button type="button" class="btn btn-outline-primary" (click)="modal.close()">OK!</button>
+  </div>
+</ng-template>
+
+<button type="button" class="btn btn-outline-danger" (click)="modal.open(contenido)">Launch</button>

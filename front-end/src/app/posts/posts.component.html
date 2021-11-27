@@ -1,0 +1,64 @@
+<ng-template #contenido let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Post your comment</h4>
+    <button class="btn btn-outline-danger" aria-label="close" type="button" (click)="modal.dismiss()">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #comment = "ngForm" (ngSubmit)="comentar(comment)">
+      <button type="submit" class="btn btn-outline-danger"></button>
+    </form>
+    <button type="button" class="btn btn-outline-primary" (click)="modal.close()">OK!</button>
+  </div>
+</ng-template>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card" *ngFor="let video of myappservice.videos" style="margin-bottom: 10px; margin-top: 10px;">
+          <iframe width="420" height="315" src="video.url"></iframe> 
+          <div class="card-body">
+            <h5 class="card-title">{{video.title}}</h5> 
+            <p>{{video.url}}</p>
+            <div class="card-buttons">
+              <button type="button" class="btn btn-danger"> {{video.likes}} 
+                <span class="material-icons">favorite</span>
+              </button>
+              <button type="button" class="btn btn-warning" style="margin-left: 10px;" (click)="modal.open(contenido)">{{video.comments.length}}
+                <span class="material-icons">forum</span>
+              </button>
+              <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" (click)="goToPost(video._id)">
+                <span class="material-icons">
+                  play_circle_outline
+                  </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" *ngFor="let video of myappservice.videos" style="margin-bottom: 10px; margin-top: 10px;">
+          <iframe width="420" height="315" src="https://www.youtube.com/embed/1gDhl4leEzA"></iframe> 
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="card-buttons">
+              <button type="button" class="btn btn-danger"> {{video.likes}} 
+                <span class="material-icons">favorite</span>
+              </button>
+              <button type="button" class="btn btn-warning" style="margin-left: 10px;" (click)="modal.open(contenido)">{{video.comments.length}}
+                <span class="material-icons">forum</span>
+              </button>
+              <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" (click)="goToPost(video._id)">
+                <span class="material-icons">
+                  play_circle_outline
+                  </span>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

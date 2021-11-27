@@ -1,0 +1,37 @@
+<form #userRegister = "ngForm" (ngSubmit)="createUser(userRegister)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" #email class="form-control" id="exampleInputEmail1" required [(ngModel)]="myappservice.newUser.email" name="email" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" required [(ngModel)]="myappservice.newUser.password" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="nameInput">First name and last name</label>
+        <input type="text" #name class="form-control" name="name" required [(ngModel)]="myappservice.newUser.name" id="nameInput">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="edadInput">Age</label>
+      <input type="text" #edad class="form-control" name="edad" required [(ngModel)]="myappservice.newUser.edad" id="edadInput">
+  </div>
+    <div class="mb-3">
+        <label class="form-label" for="selectGender">Gender</label>
+        <select class="form-select" #gender aria-label="Default select example" name="gender" [(ngModel)]="myappservice.newUser.gender" id="selecGender">
+            <option required selected>Open this select menu</option>
+            <option value="Girl">Girl</option>
+            <option value="Man">Man</option>
+            <option value="Other">Other</option>
+          </select>
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary" id="buttonSubmit">Register</button>
+</form>
+
+
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
